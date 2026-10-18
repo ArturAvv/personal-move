@@ -23,6 +23,7 @@ jobs:
           folder=pathlib.Path('assets/exercises')
           folder.mkdir(parents=True,exist_ok=True)
           for slug, urls in photos.items():
+              if slug not in ('behind-back-arms','child-pose','breathing'): continue
               for i,url in enumerate(urls,1):
                   dest=folder/f'{slug}-{i}.jpg'
                   if dest.exists() and slug != 'breathing': continue
@@ -48,4 +49,3 @@ jobs:
           git add index.html assets/exercises
           git diff --cached --quiet || git commit -m 'Store generated exercise photos permanently'
           git push
-          # New exercise photos synchronized
