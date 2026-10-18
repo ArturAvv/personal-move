@@ -25,7 +25,7 @@ jobs:
           for slug, urls in photos.items():
               for i,url in enumerate(urls,1):
                   dest=folder/f'{slug}-{i}.jpg'
-                  if dest.exists(): continue
+                  if dest.exists() and slug != 'breathing': continue
                   request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
                   with urllib.request.urlopen(request,timeout=45) as response:
                       data=response.read()
@@ -48,3 +48,4 @@ jobs:
           git add index.html assets/exercises
           git diff --cached --quiet || git commit -m 'Store generated exercise photos permanently'
           git push
+          # New exercise photos synchronized
