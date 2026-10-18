@@ -1,5 +1,8 @@
 name: Store exercise images
 on:
+  push:
+    paths:
+      - '.github/workflows/store-exercise-images.yml'
   workflow_dispatch:
 permissions:
   contents: write
@@ -8,5 +11,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Prepare permanent image directory
-        run: mkdir -p assets/exercises
+      - name: Download referenced exercise photos into repository
+        run: |
+          python3 - <<'PY'
+          import json, re, pathlib, urllib.request
+          html=pathlib.Path('index.html').read_text()
+          match=re.search(r'const photoSources=(\{.*?\});',html)
+          if not match:
+              raise RuntimeError('photoSources not found')
+          photos=json.loads(match.group(1))
+          folder=pathlib.Path('assets/exercises')
+          folder.mkdir(parents=True,exist_ok=True)
+          for slug, urls in photos.items():
+              for i,url in enumerate(urls,1):
+                  dest=folder/f'{slug}-{i}.jpg'
+                  if dest.exists(): continue
+                  request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
+                  with urllib.request.urlopen(request,timeout=45) as response:
+                      data=response.read()
+                  if len(data)<5000 or data[:3]!=b'\xff\xd8\xff':
+                      raise ValueError(f'Invalid JPEG: {slug}-{i}')
+                  dest.write_bytes(data)
+                  print(f'Saved {dest}: {len(data)} bytes')
+          PY
+      - name: Commit permanent photos and update website paths
+        run: |
+          python3 - <<'PY'
+          import pathlib,re
+          p=pathlib.Path('index.html')
+          s=p.read_text()
+          s=re.sub(r'function localVisual\(i,j\)\{.*?\}', 'function localVisual(i,j){return "assets/exercises/"+visualSlugs[i]+"-"+(j+1)+".jpg"}',s,count=1)
+          p.write_text(s)
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html assets/exercises
+          git diff --cached --quiet || git commit -m 'Store generated exercise photos permanently'
+          git push
