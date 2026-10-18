@@ -30,7 +30,7 @@ jobs:
                   request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
                   with urllib.request.urlopen(request,timeout=45) as response:
                       data=response.read()
-                  if len(data)<5000 or data[:3]!=b'\xff\xd8\xff':
+                  if len(data)<5000 or not (data.startswith(b'\xff\xd8\xff') or data.startswith(b'\x89PNG') or data.startswith(b'RIFF')):
                       raise ValueError(f'Invalid JPEG: {slug}-{i}')
                   dest.write_bytes(data)
                   print(f'Saved {dest}: {len(data)} bytes')
