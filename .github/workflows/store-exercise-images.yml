@@ -1,0 +1,12 @@
+name: Store exercise images
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  save:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare permanent image directory
+        run: mkdir -p assets/exercises
