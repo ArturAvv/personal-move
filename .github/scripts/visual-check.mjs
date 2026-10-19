@@ -2,6 +2,7 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 const base=process.env.TEST_URL || 'http://127.0.0.1:8765/';
 const out='visual-results';
+// Final verification rerun after replacement of calf raise and Bird Dog photographs.
 fs.mkdirSync(out,{recursive:true});
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
