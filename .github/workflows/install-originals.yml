@@ -2,7 +2,7 @@ name: Install full resolution exercise images
 on:
   push:
     paths:
-      - 'uploads/personal-move-level2-originals.zip'
+      - 'personal-move-level2-originals.zip'
   workflow_dispatch:
 permissions:
   contents: write
@@ -19,8 +19,8 @@ jobs:
           from pathlib import Path
           from zipfile import ZipFile
           import struct
-          archive=Path('uploads/personal-move-level2-originals.zip')
-          if not archive.exists(): raise SystemExit('Upload the ZIP to uploads/personal-move-level2-originals.zip first')
+          archive=Path('personal-move-level2-originals.zip')
+          if not archive.exists(): raise SystemExit('Upload the ZIP to personal-move-level2-originals.zip first')
           expected={'level2-calf-flat.png','level2-calf-raised.png','level2-twist-left.jpg','level2-twist-right.jpg','level2-jacks-stand.png','level2-jacks-star.png'}
           with ZipFile(archive) as z:
               if set(z.namelist()) != expected: raise SystemExit('Archive does not contain exactly the six expected image files')
