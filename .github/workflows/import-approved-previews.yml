@@ -1,0 +1,35 @@
+name: Import approved exercise previews
+on:
+  push:
+    paths:
+      - '.github/workflows/import-approved-previews.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download approved Canva previews
+        run: |
+          set -euo pipefail
+          mkdir -p assets/level2
+          curl --fail --location --retry 3 --silent --show-error 'https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2Faef814f5-f583-44c6-b03b-c4f240d294ce/watermark:F/width:150?csig=AAAAAAAAAAAAAAAAAAAAAEG_b1C1xO2o9gZ-je42Zp2vr50FEA_Bi9_r4nX3AJ0v&exp=1792445158&osig=AAAAAAAAAAAAAAAAAAAAAHbwbPDoFGDzCQO_tR59utmSDoCIkpw9s0zuj2BlSR5U&signer=media-rpc&token=AAIAAU0AJGFlZjgxNGY1LWY1ODMtNDRjNi1iMDNiLWM0ZjI0MGQyOTRjZQAAAAABoVYOknDkJKaZKDjrA56i2kCOAqTPGwf73z2CZCV8-nXbCHuAeg&x-canva-quality=thumbnail' --output 'assets/level2/level2-calf-flat.png'
+          curl --fail --location --retry 3 --silent --show-error 'https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2Ff572604c-8f64-43e1-bb66-2266e09e2c1e/watermark:F/width:150?csig=AAAAAAAAAAAAAAAAAAAAAEohw2aJG76YUxf6eNQrsQEce_pBbsyBT-G7o98q4GvX&exp=1792443465&osig=AAAAAAAAAAAAAAAAAAAAACFrQil8N85AeOcfJeytHscIrB_7SmrGHJvGhezAm2-L&signer=media-rpc&token=AAIAAU0AJGY1NzI2MDRjLThmNjQtNDNlMS1iYjY2LTIyNjZlMDllMmMxZQAAAAABoVX0vSitbgK0hEc1BlUKNGGQYdBv9UWArYsSdnSN5-_P2jJItQ&x-canva-quality=thumbnail' --output 'assets/level2/level2-calf-raised.png'
+          curl --fail --location --retry 3 --silent --show-error 'https://media.canva.com/v2/image-resize/format:JPG/height:199/quality:75/uri:ifs%3A%2F%2FM%2Fa85c319d-8720-4425-a53c-5818f23b3c8c/watermark:F/width:166?csig=AAAAAAAAAAAAAAAAAAAAAKDzBX7qSKWfnhibphVKbY_J7D5tHwXVZjpHcNvliAAS&exp=1792444907&osig=AAAAAAAAAAAAAAAAAAAAAKz4oKJ_kTtUfMsfhcHwhsjSAMcfkWj7HRVoa7hf_HJb&signer=media-rpc&token=AAIAAU0AJGE4NWMzMTlkLTg3MjAtNDQyNS1hNTNjLTU4MThmMjNiM2M4YwAAAAABoVYKvfj_Fw-adUL5r5a6C2IX06TClqoGPMuOodH9K4cM3zy3WA&x-canva-quality=thumbnail' --output 'assets/level2/level2-twist-left.jpg'
+          curl --fail --location --retry 3 --silent --show-error 'https://media.canva.com/v2/image-resize/format:JPG/height:199/quality:75/uri:ifs%3A%2F%2FM%2Fcc998aa4-d214-4d25-b4d7-c4ec152447ce/watermark:F/width:166?csig=AAAAAAAAAAAAAAAAAAAAALoUlkGYDSju2UAIBLEcXMXODFJuD9ol5asOy2x9ArsJ&exp=1792442767&osig=AAAAAAAAAAAAAAAAAAAAAFZI065ZyZU3dPC1tFlJUffPNz0PjqotcAo9F1elDVZg&signer=media-rpc&token=AAIAAU0AJGNjOTk4YWE0LWQyMTQtNGQyNS1iNGQ3LWM0ZWMxNTI0NDdjZQAAAAABoVXqFpiE0lbFYSNSTn0g94ZqZsC1nfiUpNEp40T0rcXzS06pow&x-canva-quality=thumbnail' --output 'assets/level2/level2-twist-right.jpg'
+          curl --fail --location --retry 3 --silent --show-error 'https://media.canva.com/v2/image-resize/format:PNG/height:199/quality:100/uri:ifs%3A%2F%2FM%2F1a02dafe-1adf-4fed-a89b-3e7e964f0243/watermark:F/width:166?csig=AAAAAAAAAAAAAAAAAAAAAGDKm7wkD_xPv3MmBOhh57TCHnmoa0HcGt2fWS9l0O4N&exp=1792445383&osig=AAAAAAAAAAAAAAAAAAAAALgyzRKmD_jfoHHNZ__HPxvRT41wlMKQ7cfZH9Q7Dgd1&signer=media-rpc&token=AAIAAU0AJDFhMDJkYWZlLTFhZGYtNGZlZC1hODliLTNlN2U5NjRmMDI0MwAAAAABoVYSAVg0MGddkQ-DZKedURnwH1NfWfPtM979o6-YnV4vSNZETA&x-canva-quality=thumbnail' --output 'assets/level2/level2-jacks-stand.png'
+          curl --fail --location --retry 3 --silent --show-error 'https://media.canva.com/v2/image-resize/format:PNG/height:199/quality:100/uri:ifs%3A%2F%2FM%2F19ed4f52-69b7-4053-b65f-75e55d75d667/watermark:F/width:166?csig=AAAAAAAAAAAAAAAAAAAAAD4KUcOv7jFMVOqQmkDoIj6prS6g1yQDnHWdPS-hNPWe&exp=1792444626&osig=AAAAAAAAAAAAAAAAAAAAANygFubFy8xG_zuprAYijsSeTBCB-rQ505eDbeO0iNqM&signer=media-rpc&token=AAIAAU0AJDE5ZWQ0ZjUyLTY5YjctNDA1My1iNjVmLTc1ZTU1ZDc1ZDY2NwAAAAABoVYGdFASZlqdhbNLwSRKPp07DPS5EaMRFaGauIuHo6UTwRmhiQ&x-canva-quality=thumbnail' --output 'assets/level2/level2-jacks-star.png'
+          file assets/level2/*
+      - name: Commit downloaded images
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/level2
+          if ! git diff --cached --quiet; then
+            git commit -m 'Store approved level 2 preview images locally'
+            git push
+          fi
