@@ -1,7 +1,7 @@
 {
   "url": "http://127.0.0.1:8765/",
   "viewport": "390x844",
-  "testedCommit": "bf6068597b7c5fc7e42642ad061d7a4061587321",
+  "testedCommit": "798ff4bb4833e9472911f43ef0b7682dc2498c2f",
   "screenshots": [
     "Марш на месте",
     "Круговые движения прямыми руками",
@@ -24,8 +24,8 @@
           "loaded": true,
           "naturalWidth": 1200,
           "naturalHeight": 896,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
           "containerWidth": 354,
           "fit": "cover"
         },
@@ -34,8 +34,8 @@
           "loaded": true,
           "naturalWidth": 1200,
           "naturalHeight": 896,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
           "containerWidth": 354,
           "fit": "cover"
         }
@@ -50,8 +50,8 @@
           "loaded": true,
           "naturalWidth": 1792,
           "naturalHeight": 2400,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
           "containerWidth": 354,
           "fit": "cover"
         },
@@ -60,8 +60,8 @@
           "loaded": true,
           "naturalWidth": 1200,
           "naturalHeight": 896,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
           "containerWidth": 354,
           "fit": "cover"
         }
@@ -74,22 +74,22 @@
         {
           "src": "http://127.0.0.1:8765/assets/exercises/calf-raises-1.jpg",
           "loaded": true,
-          "naturalWidth": 896,
-          "naturalHeight": 1200,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "naturalWidth": 1792,
+          "naturalHeight": 2400,
+          "rectWidth": 172,
+          "rectHeight": 219.296875,
           "containerWidth": 354,
-          "fit": "cover"
+          "fit": "contain"
         },
         {
           "src": "http://127.0.0.1:8765/assets/exercises/calf-raises-2.jpg",
           "loaded": true,
-          "naturalWidth": 896,
-          "naturalHeight": 1200,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "naturalWidth": 1792,
+          "naturalHeight": 2400,
+          "rectWidth": 172,
+          "rectHeight": 219.296875,
           "containerWidth": 354,
-          "fit": "cover"
+          "fit": "contain"
         }
       ]
     },
@@ -102,8 +102,8 @@
           "loaded": true,
           "naturalWidth": 1792,
           "naturalHeight": 2400,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
           "containerWidth": 354,
           "fit": "cover"
         },
@@ -112,8 +112,8 @@
           "loaded": true,
           "naturalWidth": 1792,
           "naturalHeight": 2400,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
           "containerWidth": 354,
           "fit": "cover"
         }
@@ -128,8 +128,8 @@
           "loaded": true,
           "naturalWidth": 896,
           "naturalHeight": 1200,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
           "containerWidth": 354,
           "fit": "cover"
         },
@@ -138,8 +138,8 @@
           "loaded": true,
           "naturalWidth": 896,
           "naturalHeight": 1200,
-          "rectWidth": 198.95001220703125,
-          "rectHeight": 253.6468505859375,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
           "containerWidth": 354,
           "fit": "cover"
         }
@@ -230,8 +230,8 @@
         {
           "src": "http://127.0.0.1:8765/assets/exercises/bird-dog-2.jpg",
           "loaded": true,
-          "naturalWidth": 1376,
-          "naturalHeight": 768,
+          "naturalWidth": 2400,
+          "naturalHeight": 1792,
           "rectWidth": 336,
           "rectHeight": 189,
           "containerWidth": 354,
