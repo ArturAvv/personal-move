@@ -23,8 +23,9 @@ jobs:
           folder=pathlib.Path('assets/exercises')
           folder.mkdir(parents=True,exist_ok=True)
           for slug, urls in photos.items():
-              if slug not in ('march','shoulder-circles','behind-back-arms','child-pose','breathing','calf-raises','squat','pushup','glute-bridge','bird-dog'): continue
+              if slug not in ('march','shoulder-circles'): continue
               for i,url in enumerate(urls,1):
+                  if not url: continue
                   dest=folder/f'{slug}-{i}.jpg'
                   if dest.exists(): continue
                   request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
