@@ -55,6 +55,12 @@
 .guided .poses.calf-photos .pose img,.exercise-card .poses.calf-photos .pose img{object-fit:contain!important;transform:none!important;object-position:center!important}
 .guided .poses.calf-photos .pose figure,.exercise-card .poses.calf-photos .pose figure{background:#f2f4ef!important}
 .guided .exercise-dose{display:block;width:max-content;max-width:100%;margin:12px 0 16px}
+/* Protect longer Russian captions after font increase */
+.guided,.exercise-card,.plan-card{min-width:0;overflow-wrap:break-word}
+.guided .pose figcaption,.exercise-card .pose figcaption{overflow-wrap:anywhere}
+.guided .pose figcaption small,.exercise-card .pose figcaption small{display:block;margin-top:4px;line-height:1.4}
+.guided .technique li{overflow-wrap:break-word}
+@media(max-width:390px){.guided .poses:not(.floor-photos){gap:6px}.guided .pose figcaption{padding:9px 8px}.guided .step-title{gap:10px}}
 </style></head><body><main id="app" class="app"></main><script>
 "use strict";
 const exercises=[
