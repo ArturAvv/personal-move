@@ -1,0 +1,53 @@
+name: Install full resolution exercise images
+on:
+  push:
+    paths:
+      - 'uploads/personal-move-level2-originals.zip'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and extract six originals
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          import struct
+          archive=Path('uploads/personal-move-level2-originals.zip')
+          if not archive.exists(): raise SystemExit('Upload the ZIP to uploads/personal-move-level2-originals.zip first')
+          expected={'level2-calf-flat.png','level2-calf-raised.png','level2-twist-left.jpg','level2-twist-right.jpg','level2-jacks-stand.png','level2-jacks-star.png'}
+          with ZipFile(archive) as z:
+              if set(z.namelist()) != expected: raise SystemExit('Archive does not contain exactly the six expected image files')
+              if z.testzip() is not None: raise SystemExit('ZIP integrity check failed')
+              out=Path('assets/level2');out.mkdir(parents=True,exist_ok=True)
+              for name in sorted(expected):
+                  b=z.read(name)
+                  if name.endswith('.png'):
+                      if b[:8] != b'\x89PNG\r\n\x1a\n': raise SystemExit('Invalid PNG: '+name)
+                      w,h=struct.unpack('>II',b[16:24])
+                  else:
+                      if b[:2] != b'\xff\xd8': raise SystemExit('Invalid JPEG: '+name)
+                      # JPG dimensions checked by ImageMagick identify below.
+                      w=h=0
+                  if name.endswith('.png') and min(w,h)<700: raise SystemExit('Image too small: '+name)
+                  (out/name).write_bytes(b)
+                  print(name, len(b), w, h)
+          PY
+          for f in assets/level2/level2-*; do identify -format '%f %wx%h\n' "$f"; done
+      - name: Commit full resolution originals
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/level2
+          if ! git diff --cached --quiet; then
+            git commit -m 'Replace six low-res previews with approved original images'
+            git push
+          fi
