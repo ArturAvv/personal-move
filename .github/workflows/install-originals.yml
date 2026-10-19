@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'personal-move-level2-originals.zip'
+      - '.github/workflows/install-originals.yml'
   workflow_dispatch:
 permissions:
   contents: write
