@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - '.github/workflows/store-bird-dog.yml'
+      - '.github/exercise-photo-import.txt'
   workflow_dispatch:
 permissions:
   contents: write
@@ -17,7 +18,7 @@ jobs:
           python3 - <<'PY'
           import urllib.request, pathlib, io
           from PIL import Image
-          url=pathlib.Path('.github/bird-dog-photo-url.txt').read_text().strip()
+          url=pathlib.Path('.github/exercise-photo-import.txt').read_text().splitlines()[-1].split(chr(9),1)[1]
           request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
           with urllib.request.urlopen(request,timeout=90) as response:
               data=response.read()
