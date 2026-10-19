@@ -25,20 +25,7 @@
 .exercise-card .pose:has(figure) figure{margin:0}
 
 
-/* Wide images for floor exercises; preserve full body without aggressive zoom */
-.guided .poses.floor-photos,.exercise-card .poses.floor-photos{grid-template-columns:1fr;gap:9px}
-.guided .poses.floor-photos .pose figure,.exercise-card .poses.floor-photos .pose figure{aspect-ratio:16/9;background:#eff2ed}
-.guided .poses.floor-photos .pose img,.exercise-card .poses.floor-photos .pose img{object-fit:contain;transform:none}
-.guided .poses.floor-photos .pose figcaption,.exercise-card .poses.floor-photos .pose figcaption{padding:7px 10px}
-
-/* Mobile photo layout: full-width landscape frames on the mat */
-.guided .poses.floor-photos,.exercise-card .poses.floor-photos{display:grid!important;grid-template-columns:minmax(0,1fr)!important;width:100%;max-width:100%;margin:12px 0 16px!important;gap:12px!important}
-.guided .poses.floor-photos .pose,.exercise-card .poses.floor-photos .pose{width:100%;max-width:100%;min-width:0}
-.guided .poses.floor-photos .pose figure,.exercise-card .poses.floor-photos .pose figure{width:100%;aspect-ratio:16/9!important;display:block;overflow:hidden;margin:0}
-.guided .poses.floor-photos .pose img,.exercise-card .poses.floor-photos .pose img{width:100%;height:100%;object-fit:contain!important;transform:none!important}
-.guided .poses.floor-photos .pose figcaption,.exercise-card .poses.floor-photos .pose figcaption{min-height:0;background:#f1f3ee;padding:9px 12px}
 .guided .easier .thumb img{object-fit:contain!important;background:#f1f3ee}
-
 /* Final mobile photo system: mat poses use uncropped landscape photographs */
 .guided .poses.floor-photos,.exercise-card .poses.floor-photos{display:flex!important;flex-direction:column!important;gap:12px!important;margin:12px 0 18px!important;width:100%!important}
 .guided .poses.floor-photos .pose,.exercise-card .poses.floor-photos .pose{flex:none!important;width:100%!important;min-width:0!important;max-width:none!important;border-radius:14px;overflow:hidden}
@@ -63,17 +50,8 @@
 @media(max-width:390px){.guided .poses:not(.floor-photos){gap:6px}.guided .pose figcaption{padding:9px 8px}.guided .step-title{gap:10px}}
 .countdown{background:#eef5e9;border-radius:20px;padding:20px;text-align:center;margin:15px 0}.countdown-ring{--progress:100%;width:164px;height:164px;border-radius:50%;background:conic-gradient(#7db78d var(--progress),#d8e5d4 0);display:grid;place-items:center;margin:12px auto}.countdown-face{width:140px;height:140px;border-radius:50%;background:#f9fcf7;display:grid;place-content:center}.countdown-number{font-size:46px;font-weight:900;color:#275c42;font-variant-numeric:tabular-nums}.countdown-actions{display:flex;gap:8px}.countdown-actions .btn{margin:0;padding:12px;font-size:14px}
 
-/* Level 2: show entire approved photo without the global 15% zoom. */
-.exercise-card .poses.canva-preview .pose img{object-fit:contain!important;object-position:center!important;transform:none!important}
-.exercise-card .poses.canva-preview .pose figure{background:#edf2ec}
 /* Keep the complete squat visible in the level-selection cover. */
 .cover{background-size:100% 100%,contain!important;background-repeat:no-repeat!important;background-position:center,center!important;background-color:#e8eee5}
-
-/* Level 2 temporary Canva previews: avoid upscaling tiny source files. */
-.exercise-card .poses.canva-preview{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px!important;margin:14px 0!important}
-.exercise-card .poses.canva-preview .pose{min-width:0;background:#eef2ec;border-radius:13px}
-.exercise-card .poses.canva-preview .pose figure{aspect-ratio:3 / 4!important;display:flex!important;align-items:center;justify-content:center;margin:0!important;overflow:hidden!important}
-.exercise-card .poses.canva-preview .pose img{width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;transform:none!important;image-rendering:auto}
 
 /* Level 2 approved poses: use the full available phone width, no decorative green matting. */
 .exercise-card:has(.poses.canva-preview){padding-left:12px;padding-right:12px}
