@@ -7,7 +7,7 @@ const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2,isMobile:true,hasTouch:true});
 const errors=[];
 page.on('pageerror',e=>errors.push('JavaScript: '+e.message));
-const report={url:base,viewport:'390x844',screenshots:[],images:[],errors};
+const report={url:base,viewport:'390x844',testedCommit:process.env.GITHUB_SHA||'local',screenshots:[],images:[],errors};
 const fail=(msg)=>{errors.push(msg);console.error('FAIL',msg)};
 try {
  await page.goto(base,{waitUntil:'domcontentloaded',timeout:45000});
