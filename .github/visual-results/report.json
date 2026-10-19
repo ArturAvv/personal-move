@@ -1,11 +1,260 @@
 {
   "url": "http://127.0.0.1:8765/",
   "viewport": "390x844",
-  "testedCommit": "3c07bab3bbe6fcefc17446c0a35a8cc446ebb9ba",
-  "screenshots": [],
-  "images": [],
-  "errors": [
-    "JavaScript: Unexpected token '}'",
-    "Test crashed: locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator('[data-go=\"levels\"]')\n\n    at /home/runner/work/personal-move/personal-move/.github/scripts/visual-check.mjs:16:43"
-  ]
+  "testedCommit": "61f62c452a0858380cbb3e6c00f4e29dc1cb5aaf",
+  "screenshots": [
+    "Марш на месте",
+    "Круговые движения прямыми руками",
+    "Подъёмы на носки",
+    "Сведение рук за спиной",
+    "Приседания без веса",
+    "Поза ребёнка — мягкая растяжка",
+    "Отжимания от пола",
+    "Ягодичный мостик",
+    "Птица — собака",
+    "Спокойное дыхание лёжа"
+  ],
+  "images": [
+    {
+      "exercise": 1,
+      "title": "Марш на месте",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/march-1.jpg",
+          "loaded": true,
+          "naturalWidth": 1200,
+          "naturalHeight": 896,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
+          "containerWidth": 354,
+          "fit": "cover"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/march-2.jpg",
+          "loaded": true,
+          "naturalWidth": 1200,
+          "naturalHeight": 896,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
+          "containerWidth": 354,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "exercise": 2,
+      "title": "Круговые движения прямыми руками",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/shoulder-circles-1.jpg",
+          "loaded": true,
+          "naturalWidth": 1792,
+          "naturalHeight": 2400,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
+          "containerWidth": 354,
+          "fit": "cover"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/shoulder-circles-2.jpg",
+          "loaded": true,
+          "naturalWidth": 1200,
+          "naturalHeight": 896,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
+          "containerWidth": 354,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "exercise": 3,
+      "title": "Подъёмы на носки",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/calf-raises-1.jpg",
+          "loaded": true,
+          "naturalWidth": 1792,
+          "naturalHeight": 2400,
+          "rectWidth": 172,
+          "rectHeight": 219.296875,
+          "containerWidth": 354,
+          "fit": "contain"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/calf-raises-2.jpg",
+          "loaded": true,
+          "naturalWidth": 1792,
+          "naturalHeight": 2400,
+          "rectWidth": 172,
+          "rectHeight": 219.296875,
+          "containerWidth": 354,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "exercise": 4,
+      "title": "Сведение рук за спиной",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/behind-back-arms-1.jpg",
+          "loaded": true,
+          "naturalWidth": 1792,
+          "naturalHeight": 2400,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
+          "containerWidth": 354,
+          "fit": "cover"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/behind-back-arms-2.jpg",
+          "loaded": true,
+          "naturalWidth": 1792,
+          "naturalHeight": 2400,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
+          "containerWidth": 354,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "exercise": 5,
+      "title": "Приседания без веса",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/squat-1.jpg",
+          "loaded": true,
+          "naturalWidth": 896,
+          "naturalHeight": 1200,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
+          "containerWidth": 354,
+          "fit": "cover"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/squat-2.jpg",
+          "loaded": true,
+          "naturalWidth": 896,
+          "naturalHeight": 1200,
+          "rectWidth": 197.79998779296875,
+          "rectHeight": 252.19140625,
+          "containerWidth": 354,
+          "fit": "cover"
+        }
+      ]
+    },
+    {
+      "exercise": 6,
+      "title": "Поза ребёнка — мягкая растяжка",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/child-pose-1.jpg",
+          "loaded": true,
+          "naturalWidth": 2400,
+          "naturalHeight": 1792,
+          "rectWidth": 336,
+          "rectHeight": 189,
+          "containerWidth": 354,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "exercise": 7,
+      "title": "Отжимания от пола",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/pushup-1.jpg",
+          "loaded": true,
+          "naturalWidth": 1376,
+          "naturalHeight": 768,
+          "rectWidth": 336,
+          "rectHeight": 189,
+          "containerWidth": 354,
+          "fit": "contain"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/pushup-2.jpg",
+          "loaded": true,
+          "naturalWidth": 1376,
+          "naturalHeight": 768,
+          "rectWidth": 336,
+          "rectHeight": 189,
+          "containerWidth": 354,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "exercise": 8,
+      "title": "Ягодичный мостик",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/glute-bridge-1.jpg",
+          "loaded": true,
+          "naturalWidth": 1376,
+          "naturalHeight": 768,
+          "rectWidth": 336,
+          "rectHeight": 189,
+          "containerWidth": 354,
+          "fit": "contain"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/glute-bridge-2.jpg",
+          "loaded": true,
+          "naturalWidth": 1376,
+          "naturalHeight": 768,
+          "rectWidth": 336,
+          "rectHeight": 189,
+          "containerWidth": 354,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "exercise": 9,
+      "title": "Птица — собака",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/bird-dog-1.jpg",
+          "loaded": true,
+          "naturalWidth": 1376,
+          "naturalHeight": 768,
+          "rectWidth": 336,
+          "rectHeight": 189,
+          "containerWidth": 354,
+          "fit": "contain"
+        },
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/bird-dog-2.jpg",
+          "loaded": true,
+          "naturalWidth": 2400,
+          "naturalHeight": 1792,
+          "rectWidth": 336,
+          "rectHeight": 189,
+          "containerWidth": 354,
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "exercise": 10,
+      "title": "Спокойное дыхание лёжа",
+      "frames": [
+        {
+          "src": "http://127.0.0.1:8765/assets/exercises/breathing-1.jpg",
+          "loaded": true,
+          "naturalWidth": 2400,
+          "naturalHeight": 1792,
+          "rectWidth": 336,
+          "rectHeight": 189,
+          "containerWidth": 354,
+          "fit": "contain"
+        }
+      ]
+    }
+  ],
+  "errors": []
 }
