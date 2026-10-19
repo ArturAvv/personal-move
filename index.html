@@ -74,6 +74,13 @@
 .exercise-card .poses.canva-preview .pose{min-width:0;background:#eef2ec;border-radius:13px}
 .exercise-card .poses.canva-preview .pose figure{aspect-ratio:3 / 4!important;display:flex!important;align-items:center;justify-content:center;margin:0!important;overflow:hidden!important}
 .exercise-card .poses.canva-preview .pose img{width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;transform:none!important;image-rendering:auto}
+
+/* Level 2 approved poses: use the full available phone width, no decorative green matting. */
+.exercise-card:has(.poses.canva-preview){padding-left:12px;padding-right:12px}
+.exercise-card .poses.canva-preview{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:3px!important;margin:12px -7px 14px!important}
+.exercise-card .poses.canva-preview .pose{background:transparent!important;border:0!important;border-radius:4px!important;padding:0!important}
+.exercise-card .poses.canva-preview .pose figure{display:block!important;width:100%!important;aspect-ratio:3 / 4!important;margin:0!important;background:transparent!important;overflow:hidden!important}
+.exercise-card .poses.canva-preview .pose img{display:block!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:contain!important;object-position:center!important;transform:none!important}
 </style></head><body><main id="app" class="app"></main><script>
 "use strict";
 const exercises=[
@@ -96,7 +103,7 @@ const levelTwoCount=12;
 const levelTwoExercises=[
 {name:'Подъёмы на носки',dose:'15–18 повторений',how:'Плавно поднимайся на носки и медленно опускай пятки. При необходимости придерживайся за устойчивую опору.',tip:'Не раскачивайся и не отталкивайся руками.'},
 {name:'Повороты корпуса в небольшом наклоне',dose:'10–12 поворотов всего',how:'Стопы немного шире плеч, колени слегка согнуты. Наклонись от таза с нейтральной спиной, разведи руки и медленно поворачивай грудную клетку вправо и влево в небольшой амплитуде.',tip:'Не скручивай поясницу резко, не тянись через боль. Если наклон некомфортен, выполняй стоя.'},
-{name:'Jumping Jacks с хлопком над головой',dose:'40 секунд',how:'Из стойки ноги вместе мягким прыжком расставь ноги шире, одновременно подними руки и хлопни над головой. Следующим прыжком вернись в исходное положение.',tip:'Приземляйся мягко, не спеши. Облегчённый вариант — шагами без прыжков.'},
+{name:'Jumping Jacks с хлопком над головой',dose:'40 секунд',how:'Из стойки ноги вместе мягким прыжком расставь ноги шире, одновременно подними руки и хлопни над головой. Следующим прыжком вернись в исходное положение.',tip:'Приземляйся мягко, контролируй положение коленей и корпуса.'},
 {name:'Колено к противоположному локтю стоя',dose:'10–12 на сторону',how:'Стоя прямо, поочерёдно поднимай колено к противоположному локтю, слегка поворачивая грудную клетку.',tip:'Не тяни шею вниз и не делай резких скручиваний.'},
 {name:'Боковые шаги с полуприседом',dose:'10 шагов в каждую сторону',how:'Слегка согни колени, отведи таз назад и выполняй контролируемые шаги вправо и влево.',tip:'Держи спину нейтральной, колени направляй в сторону носков.'},
 {name:'Обратные выпады',dose:'8 на каждую ногу',how:'Из стойки сделай шаг назад, согни обе ноги до комфортной глубины, вернись в стойку и поменяй ногу.',tip:'Не ударяй коленом о пол. Для равновесия можно держаться за устойчивую опору.'},
