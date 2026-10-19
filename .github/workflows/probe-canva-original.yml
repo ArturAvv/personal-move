@@ -1,0 +1,39 @@
+name: Probe Canva original image
+on:
+  push:
+    paths:
+      - '.github/workflows/probe-canva-original.yml'
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test full-resolution Canva delivery
+        shell: bash
+        run: |
+          mkdir -p assets/level2
+          curl -L -sS -f --max-time 30 'https://media.canva.com/v2/image-resize/format:PNG/height:1024/quality:100/uri:ifs%3A%2F%2FM%2Faef814f5-f583-44c6-b03b-c4f240d294ce/watermark:F/width:768?csig=AAAAAAAAAAAAAAAAAAAAAAVAECxwHTiQ7cmHYuv_wRkHkiwFwCA3lrgKZl1wk5Mc&exp=1792452358&osig=AAAAAAAAAAAAAAAAAAAAAKe0b-0tC08Inw9C8-GbyjiLUPfT5Yq460aVIy_hmK0o&signer=media-rpc&token=AAIAAU0AJGFlZjgxNGY1LWY1ODMtNDRjNi1iMDNiLWM0ZjI0MGQyOTRjZQAAAAABoVZ8b3CdFkL_so8rYnLguJu5GZt80LBRRsT-g0CirESsCgafrQ&x-canva-quality=thumbnail' -o /tmp/probe1.png || true
+          curl -L -sS -f --max-time 30 'https://media.canva.com/v2/image-resize/format:PNG/height:1024/quality:100/uri:ifs%3A%2F%2FM%2Faef814f5-f583-44c6-b03b-c4f240d294ce/watermark:F/width:768?exp=1792452358&signer=media-rpc&token=AAIAAU0AJGFlZjgxNGY1LWY1ODMtNDRjNi1iMDNiLWM0ZjI0MGQyOTRjZQAAAAABoVZ8b3CdFkL_so8rYnLguJu5GZt80LBRRsT-g0CirESsCgafrQ&x-canva-quality=thumbnail' -o /tmp/probe2.png || true
+          for f in /tmp/probe1.png /tmp/probe2.png; do if [ -f "$f" ]; then file "$f"; fi; done
+          python3 - <<'PY'
+          import struct,os,shutil
+          for path in ('/tmp/probe1.png','/tmp/probe2.png'):
+              if not os.path.exists(path):continue
+              with open(path,'rb') as f: head=f.read(24)
+              if head[:8]==b'\x89PNG\r\n\x1a\n':
+                  w,h=struct.unpack('>II',head[16:24])
+                  print(path,w,h)
+                  if w>=700 and h>=900:
+                      shutil.copyfile(path,'assets/level2/probe-original.png')
+          PY
+      - name: Save verified full size only
+        run: |
+          if [ -f assets/level2/probe-original.png ]; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add assets/level2/probe-original.png
+            git commit -m 'Test original-resolution Canva transfer'
+            git push
+          fi
