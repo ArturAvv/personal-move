@@ -8,7 +8,7 @@ on:
       - '.github/workflows/visual-check.yml'
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   browser-test:
     runs-on: ubuntu-latest
@@ -35,3 +35,15 @@ jobs:
           name: personal-move-mobile-screenshots
           path: visual-results/
           retention-days: 14
+      - name: Publish test report to repository for remote review
+        if: always()
+        run: |
+          if [ -f visual-results/report.json ]; then
+            mkdir -p .github/visual-results
+            cp visual-results/report.json .github/visual-results/report.json
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add .github/visual-results/report.json
+            git diff --cached --quiet || git commit -m 'Update mobile browser test report [skip ci]'
+            git push
+          fi
