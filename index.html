@@ -64,6 +64,43 @@
 .plan-list-only{margin-top:14px}
 .plan-list-only .routine-list{margin-top:0}
 .difficulty-feedback{margin-top:20px;text-align:left;border-top:1px solid #e2eae0;padding-top:18px}.difficulty-feedback h3{margin:0 0 8px;font-size:19px}.difficulty-feedback p{margin-bottom:12px}.difficulty-options{display:grid;gap:8px}.difficulty-options .btn{margin:0}.difficulty-options .btn[aria-pressed="true"]{background:#244b37;color:white}.difficulty-advice{margin:14px 0 0!important;color:#365d43!important;font-weight:650}
+
+/* Desktop-only layout: preserve the approved phone experience. */
+@media (min-width: 900px) {
+  .app{max-width:1040px;padding:0 32px 52px}
+  .header{height:72px}
+  .hero{height:280px;border-radius:22px}
+  .hero-inner{bottom:26px;left:30px}
+  .hero h1{font-size:37px}
+  .section{margin-top:25px}
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .track{min-height:0;display:flex;flex-direction:column;border-radius:18px}
+  .track .photo{width:100%;min-width:0;height:145px;flex:none}
+  .track .info{padding:16px;gap:7px;justify-content:flex-start}
+  .track strong{font-size:17px;line-height:1.2}
+  .track small{font-size:12px}
+  .cover{height:205px}
+  .level{padding:15px 18px}
+  .level.active{padding:14px 17px}
+  .plan-card,.exercise-card,.complete{max-width:790px;margin-left:auto;margin-right:auto;padding:24px}
+  .plan-card.plan-list-only{max-width:790px}
+  .routine-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}
+  .routine-list li{min-width:0}
+  .guided{max-width:790px;margin-left:auto;margin-right:auto;padding:22px}
+  .session-head{max-width:790px;margin-left:auto;margin-right:auto;border-radius:20px;padding:20px 24px}
+  .actions,.guided-actions{max-width:790px;margin-left:auto;margin-right:auto}
+  .guided .poses:not(.floor-photos),.exercise-card .poses:not(.floor-photos){max-width:580px;margin-left:auto;margin-right:auto}
+  .guided .poses:not(.floor-photos) .pose figure,.exercise-card .poses:not(.floor-photos):not(.canva-preview) .pose figure{max-height:340px}
+  .exercise-card .poses.canva-preview{max-width:560px;margin:12px auto 14px!important}
+  .exercise-card .poses.canva-preview .pose figure{max-height:350px}
+  .guided .poses.floor-photos,.exercise-card .poses.floor-photos{max-width:620px;margin-left:auto!important;margin-right:auto!important}
+  .guided .easier-wide{max-width:620px;margin-left:auto;margin-right:auto}
+  .countdown{max-width:540px;margin-left:auto;margin-right:auto}
+  .complete{padding:30px 24px}
+  .difficulty-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .difficulty-options .btn{padding:13px 8px;font-size:14px}
+  .footnav{position:static;max-width:790px;margin:28px auto 0;border-radius:18px;padding:12px}
+}
 </style></head><body><main id="app" class="app"></main><script>
 "use strict";
 const exercises=[
